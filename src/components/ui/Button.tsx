@@ -36,6 +36,7 @@ const buttonVariants = cva("text-white rounded-lg", {
         "bg-indigo-500 hover:bg-indigo-600 active:scale-95 duration-300",
 
       danger: "bg-red-500 hover:bg-red-600 active:scale-95 duration-300",
+      out: "border border-gray-300 hover:bg-gray-100 active:scale-95 duration-300",
     },
     size: {
       sm: "size-10 text-sm",
