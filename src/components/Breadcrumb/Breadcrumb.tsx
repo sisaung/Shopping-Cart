@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const Breadcrumb = () => {
+const Breadcrumb = ({ currentBreadcrumb }: { currentBreadcrumb: string }) => {
   return (
     <div className="flex items-center gap-2 mb-3">
-      <Link to={"/"} className="cursor-pointer flex items-center gap-2">
+      <Link to={"/"} className="flex items-center gap-2 cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -37,7 +37,7 @@ const Breadcrumb = () => {
           />
         </svg>
 
-        <p className="font-medium">Product Detail</p>
+        <p className="font-medium">{currentBreadcrumb}</p>
       </div>
     </div>
   );

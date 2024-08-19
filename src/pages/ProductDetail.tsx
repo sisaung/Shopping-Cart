@@ -17,7 +17,7 @@ const ProductDetail = () => {
   return (
     <section>
       <Container className="px-5 mb-5 lg:p-0">
-        <Breadcrumb />
+        <Breadcrumb currentBreadcrumb="Product Detail" />
         <div className="p-5 border border-gray-400 rounded-lg">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
             <div className="col-span-1">

@@ -1,13 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import Container from "../layout/Container";
 import Button from "../ui/Button";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleCartBtn = () => {
+    navigate("/myCart");
+  };
+
   return (
     <header className="py-5 mb-5">
       <Container className="px-5 lg:p-0 ">
-        <div className="flex justify-between items-center">
-          <h1 className="font-bold text-3xl"> Shopping Cart </h1>
-          <Button className="relative p-3 rounded-full flex justify-center items-center  ">
+        <div className="flex items-center justify-between">
+          <h1 className="text-3xl font-bold"> Shopping Cart </h1>
+          <Button
+            onClick={handleCartBtn}
+            className="relative flex items-center justify-center p-3 rounded-full "
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
