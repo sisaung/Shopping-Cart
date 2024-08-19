@@ -3,10 +3,10 @@ import Button from "../ui/Button";
 
 const Header = () => {
   return (
-    <header className="py-5">
+    <header className="py-5 mb-5">
       <Container className="px-5 lg:p-0 ">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-3xl "> Shopping Cart </h1>
+          <h1 className="font-bold text-3xl"> Shopping Cart </h1>
           <Button className="relative p-3 rounded-full flex justify-center items-center  ">
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -18,9 +18,7 @@ const CategoryButton = ({
     <Button
       variant="outline"
       onClick={handleActiveBtn}
-      className={`${
-        isActive ? "bg-cyan-600 text-white" : "text-gray-600"
-      }  hover:text-white`}
+      className={`${isActive ? "bg-cyan-600 text-white" : ""} `}
     >
       {categoryName}
     </Button>

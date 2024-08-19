@@ -37,7 +37,7 @@ const buttonVariants = cva("text-white rounded-lg", {
 
       danger: "bg-red-500 hover:bg-red-600 active:scale-95 duration-300",
       outline:
-        "border border-gray-300 hover:bg-cyan-600  active:scale-95 duration-300",
+        "border border-gray-300 text-gray-600  active:scale-95 duration-300",
     },
     size: {
       sm: "size-10 text-sm",
