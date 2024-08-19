@@ -6,9 +6,9 @@ const ProductSection = () => {
   const { products } = useAppSelector((state) => state.product);
 
   return (
-    <section className="px-5 lg:p-0">
-      <Container>
-        <h1 className="text-md text-gray-500 mb-4 ">Available Products</h1>
+    <section>
+      <Container className="px-5 lg:p-0">
+        <h1 className="mb-4 text-gray-500 text-md ">Available Products</h1>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />

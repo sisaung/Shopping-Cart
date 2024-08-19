@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Product } from "../../store/slice/productSlice";
 import Button from "../ui/Button";
 import Rating from "./Rating";
@@ -11,13 +12,22 @@ export const ProductCard = ({
     id,
     title,
     image,
-    description,
+    slug,
     price,
     rating: { rate },
   },
 }: ProductCardProps) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/productDetail/${slug}`);
+  };
+
   return (
-    <div className="p-5 border border-gray-300 rounded-lg flex flex-col gap-5 items-start">
+    <div
+      onClick={handleNavigate}
+      className="p-5 cursor-pointer border border-gray-300 rounded-lg flex flex-col gap-5 items-start"
+    >
       <img src={image} className="h-[120px] md:h-[150px]" />
       <h2 className="font-medium line-clamp-2"> {title} </h2>
       <Rating rate={rate} />

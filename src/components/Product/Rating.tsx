@@ -8,9 +8,10 @@ const Rating = ({ rate }: RatingProps) => {
   const stars: number[] = Array.from({ length }, (_, index) => index + 1);
 
   return (
-    <div className="mt-auto flex items-center">
+    <div className="flex items-center mt-auto">
       {stars.map((star) => (
         <svg
+          key={star}
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
