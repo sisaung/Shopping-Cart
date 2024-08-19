@@ -1,15 +1,19 @@
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import CartItems from "../components/Cart/CartItems";
 import Container from "../components/layout/Container";
 import { useAppSelector } from "../store/hooks";
 
 const MyCart = () => {
   const { cart } = useAppSelector((state) => state.cart);
-  console.log(cart);
 
   return (
     <section>
       <Container className="px-5 lg:p-0">
         <Breadcrumb currentBreadcrumb="My Cart" />
+
+        {cart.map((cart) => (
+          <CartItems key={cart!.id} cart={cart} />
+        ))}
       </Container>
     </section>
   );

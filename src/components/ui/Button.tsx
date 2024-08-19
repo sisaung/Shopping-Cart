@@ -31,13 +31,15 @@ export default Button;
 const buttonVariants = cva("text-white rounded-lg", {
   variants: {
     variant: {
-      primary: "bg-cyan-500 hover:bg-cyan-600 active:scale-95 duration-300",
+      primary:
+        "outline-none bg-cyan-500 hover:bg-cyan-600 active:scale-95 duration-300",
       secondary:
-        "bg-indigo-500 hover:bg-indigo-600 active:scale-95 duration-300",
+        "outline-none bg-indigo-500 hover:bg-indigo-600 active:scale-95 duration-300",
 
-      danger: "bg-red-500 hover:bg-red-600 active:scale-95 duration-300",
+      danger:
+        "outline-none bg-red-500 hover:bg-red-600 active:scale-95 duration-300",
       outline:
-        "border border-gray-300 text-gray-600  active:scale-95 duration-300",
+        "outline-none border border-gray-300 text-gray-600  active:scale-95 duration-300",
     },
     size: {
       sm: "size-10 text-sm",

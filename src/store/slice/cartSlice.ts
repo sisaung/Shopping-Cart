@@ -15,12 +15,12 @@ const initialState: CartState = {
     {
       id: 1,
       productId: 2,
-      quantity: 3,
+      quantity: 1,
     },
     {
       id: 2,
       productId: 4,
-      quantity: 3,
+      quantity: 1,
     },
   ],
 };
