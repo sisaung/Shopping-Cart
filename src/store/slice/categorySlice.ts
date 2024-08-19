@@ -27,10 +27,10 @@ const categorySlice = createSlice({
       state: categoryState,
       action: PayloadAction<{ id: number }>
     ) => {
-      state.categories.map((category) =>
+      state.categories = state.categories.map((category) =>
         category.id === action.payload.id
           ? { ...category, isActive: true }
-          : { ...state, isActive: false }
+          : { ...category, isActive: false }
       );
     },
   },

@@ -6,7 +6,7 @@ interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<any> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "danger";
+  variant?: "primary" | "secondary" | "danger" | "outline";
   size?: "sm" | "md" | "lg";
 }
 const Button = ({
@@ -36,7 +36,8 @@ const buttonVariants = cva("text-white rounded-lg", {
         "bg-indigo-500 hover:bg-indigo-600 active:scale-95 duration-300",
 
       danger: "bg-red-500 hover:bg-red-600 active:scale-95 duration-300",
-      out: "border border-gray-300 hover:bg-gray-100 active:scale-95 duration-300",
+      outline:
+        "border border-gray-300 hover:bg-cyan-600  active:scale-95 duration-300",
     },
     size: {
       sm: "size-10 text-sm",
