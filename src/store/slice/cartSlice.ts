@@ -11,18 +11,7 @@ type CartState = {
 };
 
 const initialState: CartState = {
-  cart: [
-    {
-      id: 1,
-      productId: 2,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      productId: 4,
-      quantity: 1,
-    },
-  ],
+  cart: [],
 };
 
 const cartSlice = createSlice({
