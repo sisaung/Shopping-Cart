@@ -12,10 +12,11 @@ type categoryState = {
 const initialState: categoryState = {
   categories: [
     { id: 0, categoryName: "All", isActive: true },
-    { id: 1, categoryName: "Electronics", isActive: false },
-    { id: 2, categoryName: "Books", isActive: false },
-    { id: 3, categoryName: "Clothing", isActive: false },
-    { id: 4, categoryName: "Home & Kitchen", isActive: false },
+
+    { id: 1, categoryName: "electronics", isActive: false },
+    { id: 2, categoryName: "jewellery", isActive: false },
+    { id: 3, categoryName: "men's clothing", isActive: false },
+    { id: 4, categoryName: "women's clothing", isActive: false },
   ],
 };
 

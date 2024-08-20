@@ -8,7 +8,9 @@ const ProductSection = () => {
 
   const active = categories.find((category) => category.isActive === true);
   const filterProduct = products.filter(
-    (product) => product.category === active!.categoryName
+    (product) =>
+      active!.categoryName === "All" ||
+      product.category === active!.categoryName
   );
 
   return (
@@ -16,7 +18,7 @@ const ProductSection = () => {
       <Container className="px-5 lg:p-0">
         <h1 className="mb-4 text-gray-500 text-md ">Available Products</h1>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product) => (
+          {filterProduct.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
