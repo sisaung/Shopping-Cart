@@ -33,13 +33,15 @@ export const ProductCard = ({
   const handleAddToCart = (event: MouseEvent) => {
     event.stopPropagation();
 
-    const newCart = {
-      id: cart.length + 1,
-      productId: id,
-      quantity: 1,
-    };
+    if (!addedCart) {
+      const newCart = {
+        id: cart.length + 1,
+        productId: id,
+        quantity: 1,
+      };
 
-    dispatch(addCart({ newCart }));
+      dispatch(addCart({ newCart }));
+    }
   };
 
   return (

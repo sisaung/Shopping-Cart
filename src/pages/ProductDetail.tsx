@@ -20,12 +20,14 @@ const ProductDetail = () => {
   const addedCart = cart.find((el) => el.productId === currentProduct!.id);
 
   const handleAddToCart = () => {
-    const newCart = {
-      id: cart.length + 1,
-      productId: currentProduct!.id,
-      quantity: 1,
-    };
-    dispatch(addCart({ newCart }));
+    if (!addedCart) {
+      const newCart = {
+        id: cart.length + 1,
+        productId: currentProduct!.id,
+        quantity: 1,
+      };
+      dispatch(addCart({ newCart }));
+    }
   };
 
   return (
