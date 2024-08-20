@@ -4,6 +4,12 @@ import { ProductCard } from "./ProductCard";
 
 const ProductSection = () => {
   const { products } = useAppSelector((state) => state.product);
+  const { categories } = useAppSelector((state) => state.category);
+
+  const active = categories.find((category) => category.isActive === true);
+  const filterProduct = products.filter(
+    (product) => product.category === active!.categoryName
+  );
 
   return (
     <section>
