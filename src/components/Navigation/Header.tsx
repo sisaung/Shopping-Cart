@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import Container from "../layout/Container";
 import Button from "../ui/Button";
+import { useAppSelector } from "../../store/hooks";
 
 const Header = () => {
   const navigate = useNavigate();
+  const { cart } = useAppSelector((state) => state.cart);
 
   const handleCartBtn = () => {
     navigate("/myCart");
@@ -13,10 +15,10 @@ const Header = () => {
     <header className="py-5 mb-5">
       <Container className="px-5 lg:p-0 ">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl sm:text-3xl font-bold"> Shopping Cart </h1>
+          <h1 className="text-2xl font-bold sm:text-3xl"> Shopping Cart </h1>
           <Button
             onClick={handleCartBtn}
-            className="relative flex items-center justify-center p-2 sm:p-3 rounded-full "
+            className="relative flex items-center justify-center p-2 rounded-full sm:p-3 "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +35,7 @@ const Header = () => {
               />
             </svg>
             <span className="absolute translate-x-2/3 -translate-y-full sm:-translate-y-[90%] md:-translate-y-[80%] bg-red-400 text-xs sm:text-sm md:text-md px-1.5 md:px-2 rounded-full">
-              1
+              {cart.length}
             </span>
           </Button>
         </div>

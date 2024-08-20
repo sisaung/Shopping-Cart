@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "../../store/slice/productSlice";
 import Button from "../ui/Button";
 import Rating from "./Rating";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { MouseEvent } from "react";
+import { addCart } from "../../store/slice/cartSlice";
 
 type ProductCardProps = {
   product: Product;
@@ -18,26 +21,45 @@ export const ProductCard = ({
   },
 }: ProductCardProps) => {
   const navigate = useNavigate();
+  const { cart } = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
+
+  const addedCart = cart.find((el) => el.productId === id);
 
   const handleNavigate = () => {
     navigate(`/productDetail/${slug}`);
   };
 
+  const handleAddToCart = (event: MouseEvent) => {
+    event.stopPropagation();
+
+    const newCart = {
+      id: cart.length + 1,
+      productId: id,
+      quantity: 1,
+    };
+
+    dispatch(addCart({ newCart }));
+  };
+
   return (
     <div
       onClick={handleNavigate}
-      className="p-5 cursor-pointer border border-gray-300 rounded-lg flex flex-col gap-5 items-start"
+      className="flex flex-col items-start gap-5 p-5 border border-gray-300 rounded-lg cursor-pointer"
     >
       <img src={image} className="h-[120px] md:h-[150px]" />
       <h2 className="font-medium line-clamp-2"> {title} </h2>
       <Rating rate={rate} />
-      <div className="flex justify-between items-center w-full">
+      <div className="flex items-center justify-between w-full">
         <p> $ {price} </p>
         <Button
           variant="outline"
-          className="py-1.5 text-sm text-gray-600 hover:bg-cyan-500 hover:text-white "
+          onClick={handleAddToCart}
+          className={`py-1.5 text-sm ${
+            addedCart ? "bg-cyan-400 text-white" : "text-gray-600 "
+          }  hover:bg-cyan-500 hover:text-white`}
         >
-          Add Cart
+          {addedCart ? "Added" : "Add Cart"}
         </Button>
       </div>
     </div>
