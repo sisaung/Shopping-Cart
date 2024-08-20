@@ -5,6 +5,7 @@ import Rating from "./Rating";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { MouseEvent } from "react";
 import { addCart } from "../../store/slice/cartSlice";
+import toast from "react-hot-toast";
 
 type ProductCardProps = {
   product: Product;
@@ -39,8 +40,10 @@ export const ProductCard = ({
         productId: id,
         quantity: 1,
       };
-
       dispatch(addCart({ newCart }));
+      toast.success("Items have been added successfully");
+    } else {
+      toast.error("You have already added item in cart...");
     }
   };
 

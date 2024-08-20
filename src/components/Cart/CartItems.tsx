@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import {
   Cart,
@@ -23,9 +24,19 @@ const CartItems = ({ cart }: CartProps) => {
 
   const handleReduceQuantity = () => {
     if (cart.quantity <= 1) {
-      if (confirm("Do you want to sure delete?")) {
-        dispatch(removeCart({ id: cart.id }));
-      }
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          dispatch(removeCart({ id: cart.id }));
+        }
+      });
     } else {
       dispatch(updateCartQuantity({ id: cart.id, q: -1 }));
     }

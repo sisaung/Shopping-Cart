@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../store/hooks";
 import Rating from "../components/Product/Rating";
 import Button from "../components/ui/Button";
 import { addCart } from "../store/slice/cartSlice";
+import toast from "react-hot-toast";
 
 const ProductDetail = () => {
   const { productSlug } = useParams();
@@ -27,6 +28,9 @@ const ProductDetail = () => {
         quantity: 1,
       };
       dispatch(addCart({ newCart }));
+      toast.success("Item has been added successfully");
+    } else {
+      toast.error("You have already added item");
     }
   };
 
