@@ -1,18 +1,32 @@
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import Container from "../components/layout/Container";
-import { useAppSelector } from "../store/hooks";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import Rating from "../components/Product/Rating";
 import Button from "../components/ui/Button";
+import { addCart } from "../store/slice/cartSlice";
 
 const ProductDetail = () => {
   const { productSlug } = useParams();
 
   const { products } = useAppSelector((state) => state.product);
+  const { cart } = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
 
   const currentProduct = products.find(
     (product) => product.slug === productSlug
   );
+
+  const addedCart = cart.find((el) => el.productId === currentProduct!.id);
+
+  const handleAddToCart = () => {
+    const newCart = {
+      id: cart.length + 1,
+      productId: currentProduct!.id,
+      quantity: 1,
+    };
+    dispatch(addCart({ newCart }));
+  };
 
   return (
     <section>
@@ -39,9 +53,12 @@ const ProductDetail = () => {
                   <p> $ {currentProduct?.price} </p>
                   <Button
                     variant="outline"
-                    className="py-1.5 text-sm text-gray-600 hover:bg-cyan-500 hover:text-white "
+                    onClick={handleAddToCart}
+                    className={`py-1.5  text-sm ${
+                      addedCart ? "bg-cyan-400 text-white" : "text-gray-600"
+                    }  hover:bg-cyan-500 hover:text-white `}
                   >
-                    Add Cart
+                    {addedCart ? "Added" : "Add Cart"}
                   </Button>
                 </div>
               </div>
