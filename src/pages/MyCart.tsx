@@ -1,5 +1,6 @@
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import CartItems from "../components/Cart/CartItems";
+
 import Container from "../components/layout/Container";
 import { useAppSelector } from "../store/hooks";
 
@@ -26,18 +27,18 @@ const MyCart = () => {
           <CartItems key={cart!.id} cart={cart} />
         ))}
         <div className="flex flex-col h-[200px]">
-          <div className="py-5 gap-14 border-t border-gray-300 mt-auto mb-5 flex justify-end items-center">
+          <div className="flex items-center justify-end py-5 mt-auto mb-5 border-t border-gray-300 gap-14">
             <div className="text-end">
-              <p className="text-gray-500 text-lg"> Total ($) </p>
-              <p className="font-bold text-lg"> {total.toFixed(2)} </p>
+              <p className="text-lg text-gray-500"> Total ($) </p>
+              <p className="text-lg font-bold"> {total.toFixed(2)} </p>
             </div>
             <div className="text-end">
-              <p className="text-gray-500 text-lg">Tax (5%) </p>
-              <p className="font-bold text-lg"> {tax.toFixed(2)} </p>
+              <p className="text-lg text-gray-500">Tax (5%) </p>
+              <p className="text-lg font-bold"> {tax.toFixed(2)} </p>
             </div>
             <div className="text-end">
-              <p className="text-gray-500 text-lg">Net Total ($) </p>
-              <p className="font-bold text-2xl"> {netTotal.toFixed(2)} </p>
+              <p className="text-lg text-gray-500">Net Total ($) </p>
+              <p className="text-2xl font-bold"> {netTotal.toFixed(2)} </p>
             </div>
           </div>
         </div>
